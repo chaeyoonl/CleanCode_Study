@@ -1,0 +1,52 @@
+package com.example.cleancode_errorhandling;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+
+import java.util.Collections;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        String employeesCount = null;
+
+        List<Object> employees = getEmployees(employeesCount);
+
+
+        Log.i("getEmployees = ", String.valueOf(employees));
+
+    }
+
+    /*
+    나쁜 코드 예시
+    */
+
+//    public void registerItem(Item item) {
+//        if (item != null) {
+//            ItemRegistry registry = peristentStore.getItemRegistry();
+//            if (registry != null) {
+//                ClipData.Item existing registry.getItem(item.getID());
+//                if (existing.getBillingPeriod().hasRetailOwner()) {
+//                    existing.register(item);
+//                }
+//            }
+//        }
+//    }
+
+    /*
+    좋은 코드 예시
+    */
+
+    public List<Object> getEmployees(String employeesCount) {
+        if (employeesCount == null) {
+            return Collections.emptyList();
+        }
+    }
+}
