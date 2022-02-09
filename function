@@ -1,0 +1,44 @@
+/* 지저분한 코드 */
+
+
+
+//public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean isSuite) throws Exception { 
+//
+//    boolean isTestPage = pageData.hasAttribute("Test"); 
+//
+//      
+//
+//    if (isTestPage) { 
+//
+//        WikiPage testPage = pageData.getWikiPage(); 
+//
+//        StringBuffer newpageContent = new StringBuffer(); 
+//
+//        includeSetupPages(testPage, newPageContent, isSuite); 
+//
+//        newPageContent.append(pageData.getContent()); 
+//
+//        includeTeardownPages(testPage， newPageContent, isSuite); 
+//
+//        pageData.setContent(newPageContent.toString()); 
+//
+//    } 
+//
+//  
+//
+//    return pageData.getHtml(); 
+//
+//}
+
+
+/* 정리된 코드 */
+
+public static String renderPageWithSetupsAndTeardowns(PageData pageData, boolean isSuite) throws Exception { 
+
+    if (isTestPage(pageData))
+
+      includeSetupAndTeardownPages(pageData, isSuite); 
+
+    return pageData.getHtml();
+
+}
